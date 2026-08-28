@@ -97,17 +97,6 @@ export default async function LandingPage() {
 
   // Real testimonials only — no invented quotes attributed to fake names.
   // A brand-new platform legitimately has zero completed jobs yet, so
-  // this section only renders once there's real signal to show; an
-  // almost-empty "testimonials" section with 1-2 items would look worse
-  // than not having the section at all.
-  const { data: reviewRows } = await supabase
-    .from('reviews')
-    .select('rating, comment, tags, helper_profiles!reviews_reviewee_id_fkey(display_name)')
-    .eq('rating', 5)
-    .not('comment', 'is', null)
-    .order('created_at', { ascending: false })
-    .limit(6);
-  const testimonials = (reviewRows ?? []).filter((r: any) => r.comment && r.comment.length > 10);
 
   return (
     <main>
