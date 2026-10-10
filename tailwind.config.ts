@@ -1,45 +1,44 @@
 import type { Config } from 'tailwindcss';
 
-// Design tokens carried over 1:1 from the approved ALLinHELP / Urgent Help
-// product design (ALLinHELP_Product_Design.html) — do not change without
-// design sign-off.
+// Design tokens sourced directly from the "Urgent Help" Figma file
+// (fileKey i4pipHNVS1GclySydJFCDi) — a light-themed UI, distinct from the
+// old dark-navy tokens this file used to carry for the retired Next.js app.
 const config: Config = {
-  content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        navy: '#0F1F3D',
-        'navy-2': '#16294f',
         brand: {
-          DEFAULT: '#2563EB', // Electric Blue — primary action
-          dark: '#1D4ED8',
+          DEFAULT: '#1E4BB8', // primary blue — CTAs, active states, links
+          dark: '#163A94',
         },
-        ai: '#06B6D4', // Cyan — AI accent
-        success: '#22C55E',
+        ai: '#06B6D4',
+        success: '#16A34A',
         warning: '#F59E0B',
-        danger: '#F87171',
-        // Dark app background (near-black, slight navy tint)
-        surface: '#0A0E1A',
-        // Card / panel surface — one step up from the page background
-        panel: '#131A2C',
-        'panel-2': '#182036',
+        danger: '#DC2626',
+        // Page background (light grey) and card surfaces
+        surface: '#F5F6F8',
+        panel: '#FFFFFF',
+        'panel-2': '#ECEEF1',
         ink: {
-          DEFAULT: '#F5F7FA', // headings — near-white
-          soft: '#9CA8C4', // secondary text
-          faint: '#6B7690', // labels, placeholders
+          DEFAULT: '#16181D', // headings, primary text
+          soft: '#5B616E', // secondary/body text
+          faint: '#9AA0AC', // placeholders, disabled
         },
-        line: 'rgba(255,255,255,0.08)',
+        line: '#E7E9ED',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'system-ui', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
       },
       borderRadius: {
-        card: '18px',
+        card: '20px',
+        'card-lg': '32px',
         pill: '999px',
       },
       boxShadow: {
-        card: '0 1px 2px rgba(15,31,61,.04), 0 8px 24px -8px rgba(15,31,61,.12)',
-        lg2: '0 20px 60px -12px rgba(15,31,61,.28)',
+        card: '0 1px 2px rgba(22,24,29,.04), 0 8px 24px -8px rgba(22,24,29,.10)',
+        lg2: '0 20px 60px -12px rgba(22,24,29,.18)',
       },
     },
   },

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: #F5F6F8;
+  color: #16181D;
+}
+
+#root { min-height: 100vh; }
+
+h1, h2, h3, .font-display { font-family: 'Outfit', system-ui, sans-serif; }
+
+.card { @apply bg-panel rounded-card shadow-card border border-line; }
+.badge { @apply inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-pill; }
+.badge-verified { @apply bg-emerald-50 text-emerald-700; }
+.badge-ai { @apply bg-gradient-to-r from-cyan-50 to-blue-50 text-blue-700; }
+.badge-amber { @apply bg-amber-50 text-amber-700; }
+.badge-danger { @apply bg-rose-50 text-rose-700; }
+.badge-navy { @apply bg-panel-2 text-ink-soft border border-line; }
+
+.btn { @apply inline-flex items-center justify-center gap-2 rounded-pill font-bold text-[16px] px-6 h-14 transition active:scale-[0.98]; }
+.btn-primary { @apply bg-brand text-white shadow-[0_10px_24px_-8px_rgba(30,75,184,0.45)]; }
+.btn-ghost { @apply bg-transparent text-brand border border-line; }
+
+/* Force Swiper to size itself from plain CSS content flow instead of its
+   own JS height measurement — the JS-measured height was unreliable inside
+   a scrollable, height-capped ancestor (md:max-h / overflow-y-auto on
+   FlowScreenShell), silently clipping slide content at desktop widths. */
+.swiper, .swiper-wrapper, .swiper-slide {
+  height: auto !important;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(22,24,29,0.15); border-radius: 8px; }
+
+:focus-visible {
+  outline: 2px solid #1E4BB8;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
